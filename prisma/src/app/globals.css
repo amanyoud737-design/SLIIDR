@@ -1,0 +1,49 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: "Cairo", system-ui, sans-serif;
+  background: #fafafa;
+  color: #111;
+}
+
+a { color: inherit; }
+button { cursor: pointer; }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 18px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  outline: none;
+  background: #fff;
+}
+
+.row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+
+.btn {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  background: #fff;
+}
+
+.btnPrimary {
+  background: #111;
+  border-color: #111;
+  color: #fff;
+}
+
+.muted { opacity: 0.75; font-size: 12px; }
