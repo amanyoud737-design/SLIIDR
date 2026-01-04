@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Presentation {
+  id           String   @id @default(cuid())
+  title        String
+  slides       Json
+  templateId   String?
+  isPaid       Boolean  @default(false)
+  previewToken String   @unique
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  payments     Payment[]
+}
+
+model Template {
+  id        String   @id @default(cuid())
+  name      String
+  config    Json     // { bgColor, textColor, bgImageUrl?, layouts: [...] }
+  createdAt DateTime @default(now())
+}
+
+model Payment {
+  id             String   @id @default(cuid())
+  presentationId String
+  paypalOrderId  String   @unique
+  status         String
+  amount         String
+  currency       String
+  createdAt      DateTime @default(now())
+
+  presentation Presentation @relation(fields: [presentationId], references: [id])
+}
